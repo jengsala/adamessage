@@ -1,6 +1,4 @@
-
 from setuptools import setup, find_packages
-import setuptools
 
 # Usage: python setup.py sdist bdist_wheel
 
@@ -14,7 +12,7 @@ VERSION = "1.0"
 
 with open("README.md", "r") as fh:
     LONG_DESCRIPTION = fh.read()
-    
+
 setup(
       name="setuppythonscript", # projet git
       version=VERSION,

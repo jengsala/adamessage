@@ -1,14 +1,13 @@
-LIB setuppythonscript
---------------
+Script Python en Module
+-----------------------
 
-## Generate the distribution archives on local machine.
-
+## Générer les archives de distribution sur la machine locale
 
 Maintenant que le code du package python est presque terminé, vous pouvez commencer à créer les archives de distribution. Les archives sont des fichiers compressés qui aident votre package à être déployé sur plusieurs plates-formes et le rendent également indépendant de la plate-forme.
 Afin de générer les archives de distribution, exécutez la commande suivante depuis votre terminal.
 
 ```sh
-python -m pip install --user --upgrade setuptools wheel
+pip install --user --upgrade setuptools wheel
 ```
 
 
@@ -21,7 +20,8 @@ python setup.py sdist bdist_wheel
 Une fois que vous avez exécuté la commande ci-dessus, vous pouvez voir que les packages de distribution seront livrés dans les répertoires – build et dist, qui sont nouvellement créés comme ci-dessous.
 En plus de cela, vous pouvez également voir que les informations du fichier egg ont également été mises à jour dans le code source du projet.
 
-## Install the package on local machine.
+
+## Installer le package sur la machine locale
 
 ```sh
 pip install -e .
@@ -39,22 +39,24 @@ Cela le maintient isolé du référentiel officiel PyPi et garantit que seuls le
 Accédez à https://test.pypi.org/ et inscrivez-vous en tant qu'utilisateur. Une fois inscrit, ouvrez votre terminal et exécutez la commande suivante. Cela installera un package appelé « twine » sur votre machine qui aidera à expédier le package python aux référentiels.
 
 ```sh
-python -m pip install --user --upgrade twine
+pip install --user --upgrade twine
 ```
 
 Vous pouvez lire la documentation officielle sur l'empaquetage d'applications Python ainsi que sur Twine ici. Une fois le package twine installé, exécutez la commande suivante pour envoyer d'abord le code à TestPyPi. Lorsque vous exécutez la commande, il vous sera demandé de fournir les mêmes informations d'identification avec lesquelles vous avez enregistré votre compte à l'étape précédente.
 
 ```sh
-python -m twine upload --repository testpypi dist/*
+twine upload --repository testpypi dist/*
 ```
 
-# PUBLISH
+# Publication
 
 Maintenant que tout fonctionne bien avec notre package, il est temps de le publier sur le référentiel officiel PyPi. Suivez les mêmes étapes pour créer un compte, puis exécutez la commande suivante pour envoyer le package au référentiel officiel.
 
 ```sh
-python -m twine upload dist/*
+twine upload dist/*
 ```
+
+## Publier sur Nexus Repository Manager
 
 ```sh
 twine upload --repository nexus 
@@ -63,8 +65,9 @@ twine upload --repository nexus
 ## Browsing PyPI Repositories and Searching Packages
 
 ```sh
-pip search example-package
+pip search mypackage
 ```
+
 - resultat:
 
 ```sh
@@ -76,8 +79,7 @@ setuppythonscript (1.0)  - A python client for setuppythonscript.
 ```
 
 
-
-## Config pip.conf
+## Configuration de `pip.conf`
 
 ```conf
 [distutils]
@@ -108,7 +110,7 @@ password = pypi-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ## Mots-clés dans ``setup.py``
 
 
-Exemples de quelques mots-clés utilisés lors de l'appel de la setup()méthode :
+Exemples de quelques mots-clés utilisés lors de l'appel de la méthode `setup()`  :
 
 - ``name``: Une chaîne contenant le nom du package.
 - ``version``: Une chaîne contenant le numéro de version du package.
