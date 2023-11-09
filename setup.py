@@ -9,21 +9,21 @@ links = []  # for repo urls (dependency_links)
 with open("requirements.txt") as fp:
     install_requires = fp.read()
 
-DESCRIPTION = "A python client for AdaMessage."
+DESCRIPTION = "A python client for setuppythonscript."
 VERSION = "1.0"
 
 with open("README.md", "r") as fh:
     LONG_DESCRIPTION = fh.read()
     
 setup(
-      name="adamessage", # projet git
+      name="setuppythonscript", # projet git
       version=VERSION,
       author='Adama DIENG',
       author_email='adama.dieng@digitastuces.com',  
       description=DESCRIPTION,
       long_description=LONG_DESCRIPTION,
       long_description_content_type="text/markdown",
-      url="https://github.com/jengsala/adamessage",
+      url="https://github.com/jengsala/setuppythonscript",
       keywords='development, setup, setuptools',
       license="MIT",
       packages=find_packages(),    # List of all python modules to be installed
@@ -35,7 +35,7 @@ setup(
       ],
       install_requires=install_requires,
       python_requires='>=3.6', 
-      py_modules=["adamessage"],
-      package_dir={'':'adamessage/src'}, 
+      py_modules=["setuppythonscript"],
+      package_dir={'':'setuppythonscript/src'}, 
       dependency_links=links,
 )

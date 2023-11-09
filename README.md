@@ -1,4 +1,4 @@
-LIB ADAMESSAGE
+LIB setuppythonscript
 --------------
 
 ## Generate the distribution archives on local machine.
@@ -68,9 +68,9 @@ pip search example-package
 - resultat:
 
 ```sh
-pip search adamessage
+pip search setuppythonscript
 User for nexus.digitastuces.com: adieng
-adamessage (1.0)  - A python client for AdaMessage.
+setuppythonscript (1.0)  - A python client for setuppythonscript.
   INSTALLED: 1.0
   LATEST:    1.0
 ```
