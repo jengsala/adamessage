@@ -30,6 +30,25 @@ pip install -e .
 Comme vous pouvez le voir dans la figure ci-dessus, dans la première étape, nous installons le package localement à l'aide de la commande et une fois installé, nous démarrons le shell python et l'importons.
 Ensuite, nous appelons la méthode package et elle imprime le message sur le terminal.
 
+```sh
+...
+...
+Installing collected packages: setuppythonscript
+  Running setup.py develop for setuppythonscript
+Successfully installed setuppythonscript-1.0
+```
+
+```python
+> python3
+Python 3.10.12 (main, Nov  9 2023, 12:32:44) [GCC 12.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import monscript
+>>> clss = monscript.MaClasse("atr1","atr2")
+>>> clss.bonjour("Antoine")
+'Bonjour Antoine'
+>>> 
+```
+
 # Publish the package to the TestPyPi
 
 Une fois le package installé en local et fonctionne correctement, il est maintenant prêt à être expédié vers le référentiel TestPyPi. Il s'agit d'un référentiel de test pour tous les packages Python afin de tester et voir si tout le code fonctionne correctement et s'il n'y a aucun problème dans le code du package.
@@ -59,8 +78,17 @@ twine upload dist/*
 ## Publier sur Nexus Repository Manager
 
 ```sh
-twine upload --repository nexus 
+twine upload --repository nexus dist/*
 ```
+
+```sh
+Uploading distributions to https://nexus.digitastuces.com/repository/pypi-internal/
+Uploading setuppythonscript-1.0-py3-none-any.whl
+100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.5/14.5 kB • 00:00 • 12.4 MB/s
+Uploading setuppythonscript-1.0.tar.gz
+100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.7/14.7 kB • 00:00 • 19.7 MB/s
+```
+
 
 ## Browsing PyPI Repositories and Searching Packages
 
@@ -85,18 +113,18 @@ setuppythonscript (1.0)  - A python client for setuppythonscript.
 [distutils]
 index-servers = 
     nexus
+    testpypi
     easy_install
 
 [nexus]
 repository: https://nexus.digitastuces.com/repository/pypi-internal/
 username: xxxxxxxxxxxx
-password: xxxxxxxxxxxxxxxxxxxxx
+password: xxxxxxxxxxxx
 
 [global]
 index = https://nexus.digitastuces.com/repository/pypi-all/pypi
 index-url = https://nexus.digitastuces.com/repository/pypi-all/simple
 trusted-host = nexus.digitastuces.com
-
 
 [easy_install]
 index-url = https://nexus.digitastuces.com/repository/pypi-proxy/simple
