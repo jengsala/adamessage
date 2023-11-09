@@ -56,6 +56,53 @@ Maintenant que tout fonctionne bien avec notre package, il est temps de le publi
 python -m twine upload dist/*
 ```
 
+```sh
+twine upload --repository nexus 
+```
+
+## Browsing PyPI Repositories and Searching Packages
+
+```sh
+pip search example-package
+```
+- resultat:
+
+```sh
+pip search adamessage
+User for nexus.digitastuces.com: adieng
+adamessage (1.0)  - A python client for AdaMessage.
+  INSTALLED: 1.0
+  LATEST:    1.0
+```
+
+
+
+## Config pip.conf
+
+```conf
+[distutils]
+index-servers = 
+    nexus
+    easy_install
+
+[nexus]
+repository: https://nexus.digitastuces.com/repository/pypi-internal/
+username: xxxxxxxxxxxx
+password: xxxxxxxxxxxxxxxxxxxxx
+
+[global]
+index = https://nexus.digitastuces.com/repository/pypi-all/pypi
+index-url = https://nexus.digitastuces.com/repository/pypi-all/simple
+trusted-host = nexus.digitastuces.com
+
+
+[easy_install]
+index-url = https://nexus.digitastuces.com/repository/pypi-proxy/simple
+
+[testpypi]
+username = jengsala #__token__
+password = pypi-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
 
 
 ## Mots-clés dans ``setup.py``
